@@ -1,0 +1,24 @@
+class Solution {
+    void swap(int[] a, int left, int right) {
+        int temp = a[left];
+        a[left] = a[right];
+        a[right] = temp;
+    }
+
+    public int removeElement(int[] nums, int val) {
+        int left = 0;
+        int right = nums.length - 1;
+
+        while (left <= right) {
+
+            if (nums[left] == val) {
+                swap(nums, left, right);
+                right--;
+            } else {
+                left++;
+            }
+        }
+
+        return left;
+    }
+}
