@@ -1,0 +1,27 @@
+class Solution {
+    int max1(int a ,int b){
+        if(a>b){
+            return a;
+        }
+        return b;
+    }
+    int min1(int a ,int b){
+        if(a<b){
+            return a;
+        }
+        return b;
+    }
+    public int maxAbsoluteSum(int[] a) {
+        int max=a[0];
+        int min=a[0];
+        int res=Math.abs(a[0]);
+        int v1;
+        for(int i=1;i<a.length;i++){
+            max=max1(max+a[i],a[i]);
+            min=min1(min+a[i],a[i]);
+            v1=max1(Math.abs(max),Math.abs(min));
+            res=max1(Math.abs(res),v1);
+        }
+        return res;
+    }
+}
