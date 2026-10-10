@@ -1,0 +1,26 @@
+class Solution {
+    int max(int a, int b){
+        if(a>b){
+            return a;
+        }
+        return b;
+    }
+    public int maximumSum(int[] a) {
+        int nodel=a[0];
+        int onedel=Integer.MIN_VALUE;
+        int res=a[0];
+        int v1=0;
+        for(int i=1;i<a.length;i++){
+            if(onedel==Integer.MIN_VALUE){
+                v1=a[i];
+            }
+            else{
+                v1=onedel+a[i];
+            }
+            onedel=max(v1,nodel);
+            nodel=max(nodel+a[i],a[i]);
+            res=max(res,max(nodel,onedel));
+        }
+        return res;
+    }
+}
